@@ -75,6 +75,7 @@ public class HomeActivity extends AppCompatActivity
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
+        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
 
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
@@ -154,6 +155,8 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.nav_categories) {
 
         } else if (id == R.id.nav_settings) {
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
             Paper.book().destroy();
