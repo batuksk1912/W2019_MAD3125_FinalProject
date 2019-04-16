@@ -29,6 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
@@ -95,8 +97,18 @@ public class HomeActivity extends AppCompatActivity
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
                         holder.txtProductName.setText(model.getPname());
                         holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
+
+                        NumberFormat format = NumberFormat.getCurrencyInstance();
+                        String formattedPrice = format.format(Float.parseFloat(model.getPrice()));
+
+                        holder.txtProductPrice.setText(formattedPrice);
                         Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                        holder.itemView.setOnClickListener((v -> {
+                            Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                            intent.putExtra("pid", model.getPid());
+                            startActivity(intent);
+                        }));
                     }
 
                     @NonNull
