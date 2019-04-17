@@ -1,5 +1,6 @@
 package com.daniloesser.ecommerceexample;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +53,16 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                         holder.userTotalPrice.setText("Total Amount: " + model.getTotalAmount());
                         holder.userDateTime.setText("Date Time: " + model.getDate() + " " + model.getTime());
                         holder.userShippingAddress.setText("Address: " + model.getAddress() + " " + model.getCity());
+
+                        holder.showOrdersButton.setOnClickListener((v -> {
+
+                            String uID = getRef(position).getKey();
+
+
+                            Intent intent = new Intent(AdminNewOrdersActivity.this, AdminUserProductsActivity.class);
+                            intent.putExtra("uid", uID);
+                            startActivity(intent);
+                        }));
                     }
 
                     @NonNull
