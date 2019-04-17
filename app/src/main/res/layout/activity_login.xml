@@ -72,28 +72,13 @@
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
             android:gravity="center_vertical"
             android:text="Remember me"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
             android:textStyle="bold"
             app:cbd_strokeColor="@color/colorPrimaryDark"
-            app:layout_constraintBottom_toBottomOf="@+id/forget_password_link"
-            app:layout_constraintEnd_toStartOf="@+id/forget_password_link"
             app:layout_constraintStart_toStartOf="@+id/login_password_input"
-            app:layout_constraintTop_toBottomOf="@+id/login_password_input" />
-
-        <TextView
-            android:id="@+id/forget_password_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Forget Password?"
-            android:textColor="@color/colorAccent"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/login_password_input"
             app:layout_constraintTop_toBottomOf="@+id/login_password_input" />
 
 
@@ -120,29 +105,30 @@
             android:id="@+id/admin_panel_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="8dp"
             android:text="I'm an Admin?"
             android:textColor="@color/colorAccent"
             android:textSize="17dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/remember_me_chkb"
             app:layout_constraintEnd_toEndOf="@+id/login_password_input"
-            app:layout_constraintTop_toBottomOf="@+id/forget_password_link" />
+            app:layout_constraintStart_toEndOf="@+id/remember_me_chkb"
+            app:layout_constraintTop_toBottomOf="@+id/login_password_input" />
 
         <TextView
             android:id="@+id/not_admin_panel_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="I'm not Admin?"
             android:textColor="@color/colorAccent"
             android:textSize="17dp"
             android:textStyle="bold"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/admin_panel_link"
-            app:layout_constraintEnd_toStartOf="@+id/admin_panel_link"
+            app:layout_constraintEnd_toEndOf="@+id/remember_me_chkb"
             app:layout_constraintStart_toStartOf="@+id/login_password_input"
             app:layout_constraintTop_toBottomOf="@+id/remember_me_chkb" />
 
