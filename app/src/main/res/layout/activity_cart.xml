@@ -56,7 +56,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Next"
+        android:text="PLACE ORDER"
         android:textColor="@android:color/white"
 
         />

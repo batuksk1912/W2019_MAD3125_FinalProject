@@ -36,7 +36,7 @@ public class CartActivity extends AppCompatActivity {
     private Button NextProcessButton;
     private TextView txtTotalAmount, txtMsg1;
 
-    private Float overTotalPrice = 0f;
+    private Float overTotalPrice = 0.0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +56,15 @@ public class CartActivity extends AppCompatActivity {
         NextProcessButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txtTotalAmount.setText("Total Price = $" + String.valueOf(overTotalPrice));
-                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
-                intent.putExtra("Total Price", String.valueOf(overTotalPrice));
-                startActivity(intent);
-                finish();
+                if (overTotalPrice != 0.0) {
+                    txtTotalAmount.setText("Total Price = $" + String.valueOf(overTotalPrice));
+                    Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
+                    intent.putExtra("Total Price", String.valueOf(overTotalPrice));
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(CartActivity.this, "Cart is empty!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -72,6 +76,7 @@ public class CartActivity extends AppCompatActivity {
         CheckOrderState();
 
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+
 
         FirebaseRecyclerOptions<Cart> options = new FirebaseRecyclerOptions.Builder<Cart>()
                 .setQuery(cartListRef.child("User View")
@@ -107,6 +112,12 @@ public class CartActivity extends AppCompatActivity {
                                 }
 
                                 if (i == 1) {
+                                    cartListRef.child("Admin View")
+                                            .child(Prevalent.currentOnlineUser.getPhone())
+                                            .child("Products")
+                                            .child(model.getPid())
+                                            .removeValue();
+
                                     cartListRef.child("User View")
                                             .child(Prevalent.currentOnlineUser.getPhone())
                                             .child("Products")
