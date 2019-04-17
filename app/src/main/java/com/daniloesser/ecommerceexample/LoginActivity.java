@@ -58,14 +58,14 @@ public class LoginActivity extends AppCompatActivity {
         }));
 
         AdminLink.setOnClickListener((v -> {
-            LoginButton.setText("Login Admin");
+            LoginButton.setText("ADMIN LOGIN");
             AdminLink.setVisibility(View.INVISIBLE);
             NotAdminLink.setVisibility(View.VISIBLE);
             parentDbName = "Admins";
         }));
 
         NotAdminLink.setOnClickListener((v) -> {
-            LoginButton.setText("Login");
+            LoginButton.setText("LOGIN");
             AdminLink.setVisibility(View.VISIBLE);
             NotAdminLink.setVisibility(View.INVISIBLE);
             parentDbName = "Users";

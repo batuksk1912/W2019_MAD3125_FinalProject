@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/welcome"
         tools:context=".MainActivity">
 
@@ -16,7 +17,7 @@
             android:id="@+id/app_logo"
             android:layout_width="300dp"
             android:layout_height="200dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="80dp"
             android:src="@drawable/applogo"
             app:layout_constraintHorizontal_bias="0.558"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -48,7 +49,7 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/buttons"
             android:padding="20dp"
-            android:text="Already have an account? Login"
+            android:text="ALREADY HAVE AN ACCOUNT? LOGIN"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="18sp"
@@ -66,13 +67,15 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/input_design"
             android:padding="20dp"
-            android:text="Join Now"
+            android:text="JOIN NOW"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/main_login_btn"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/app_slogan" />
+            app:layout_constraintTop_toBottomOf="@+id/app_slogan"
+            app:layout_constraintVertical_bias="1.0" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
